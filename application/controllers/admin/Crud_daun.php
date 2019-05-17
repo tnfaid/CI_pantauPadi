@@ -35,7 +35,7 @@ class Crud_daun extends CI_Controller{
             if ($this->common_model->insert($data, 'daun')){
                 $this->session->set_flashdata('msg', 'Data added Successfully');
 //                redirect(base_url('admin/daun/all_daun'));
-//                $this->load->view('admin/daun/all_daun', $data);
+                $this->load->view('admin/daun/all_daun', $data);
             }
 //
         }

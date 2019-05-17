@@ -41,25 +41,15 @@
                 <table id="example23" class="display nowrap" cellspacing="0" width="100%">
                     <thead>
                     <tr>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Mobile</th>
-                        <th>Country</th>
-                        <th>Status</th>
-                        <th>Role</th>
-                        <th>Joining Date</th>
+                        <th>Jenis Tanaman</th>
+
                         <th>Action</th>
                     </tr>
                     </thead>
                     <tfoot>
                     <tr>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Mobile</th>
-                        <th>Gender</th>
-                        <th>Status</th>
-                        <th>Role</th>
-                        <th>Joining Date</th>
+                        <th>Jenis Tanaman</th>
+
                         <th>Action</th>
                     </tr>
                     </tfoot>
@@ -69,27 +59,24 @@
 
                         <tr>
 
-                            <td><?php echo $user['first_name'].' '.$user['last_name']; ?></td>
-                            <td><?php echo $user['email']; ?></td>
-                            <td><?php echo $user['mobile']; ?></td>
-                            <td><?php echo $user['country']; ?></td>
+                            <td><?php echo $user['jenis_tanaman']; ?></td>
 
-                            <td>
-                                <?php if ($user['status'] == 0): ?>
-                                    <div class="label label-table label-danger">Inactive</div>
-                                <?php else: ?>
-                                    <div class="label label-table label-success">Active</div>
-                                <?php endif ?>
-                            </td>
-                            <td width="10%">
-                                <?php if ($user['role'] == 'admin'): ?>
-                                    <div class="label label-table label-info"><i class="fa fa-user"></i> admin</div>
-                                <?php else: ?>
-                                    <div class="label label-table label-success">user</div>
-                                <?php endif ?>
-                            </td>
+<!--                            <td>-->
+<!--                                --><?php //if ($user['status'] == 0): ?>
+<!--                                    <div class="label label-table label-danger">Inactive</div>-->
+<!--                                --><?php //else: ?>
+<!--                                    <div class="label label-table label-success">Active</div>-->
+<!--                                --><?php //endif ?>
+<!--                            </td>-->
+<!--                            <td width="10%">-->
+<!--                                --><?php //if ($user['role'] == 'admin'): ?>
+<!--                                    <div class="label label-table label-info"><i class="fa fa-user"></i> admin</div>-->
+<!--                                --><?php //else: ?>
+<!--                                    <div class="label label-table label-success">user</div>-->
+<!--                                --><?php //endif ?>
+<!--                            </td>-->
 
-                            <td><?php echo my_date_show_time($user['created_at']); ?></td>
+<!--                            <td>--><?php //echo my_date_show_time($user['created_at']); ?><!--</td>-->
                             <td class="text-nowrap">
 
                                 <?php if ($this->session->userdata('role') == 'admin'): ?>
@@ -120,15 +107,7 @@
 
 
 
-                                <?php if ($user['status'] == 1): ?>
 
-                                    <a href="<?php echo base_url('admin/user/deactive/'.$user['id']) ?>" data-toggle="tooltip" data-original-title="Deactive"><button type="button" class="btn btn-danger btn-circle btn-xs"><i class="fa fa-times"></i></button></a>
-
-
-                                <?php else: ?>
-
-                                    <a href="<?php echo base_url('admin/user/active/'.$user['id']) ?>" data-toggle="tooltip" data-original-title="Activate"><button type="button" class="btn btn-success btn-circle btn-xs"><i class="fa fa-check"></i></button></a>
-                                <?php endif ?>
 
                             </td>
                         </tr>
