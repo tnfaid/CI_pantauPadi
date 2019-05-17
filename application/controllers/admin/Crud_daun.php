@@ -31,13 +31,10 @@ class Crud_daun extends CI_Controller{
             );
             $data = $this->security->xss_clean($data);
 
-//            check duplicate id
-            if ($this->common_model->insert($data, 'daun')){
-                $this->session->set_flashdata('msg', 'Data added Successfully');
-//                redirect(base_url('admin/daun/all_daun'));
-                $this->load->view('admin/daun/all_daun', $data);
-            }
-//
+            $this->common_model->insert($data, 'daun');
+            $this->session->set_flashdata('msg', 'Data added Successfully');
+            redirect(base_url('admin/Crud_daun/all_daun_list'));
+
         }
     }
 
