@@ -47,4 +47,23 @@ class Daun_model extends CI_Model{
         $this->db->insert('daun', $data);
         return $this->db->insert_id();
     }
+
+    public function list_all_daun() {
+        $data = $this->db->query("select * from daun");
+        if($data->num_rows() > 0){
+            foreach ($data->result() as $baris){
+                $definisidata[] = $baris;
+            }
+            return $definisidata;
+        }
+    }
+
+    function get_all_daun(){
+        $this->db->select('*');
+        $this->db->from('daun');
+        $this->db->order_by('daun.id','DESC');
+        $query = $this->db->get();
+        $query = $query->result_array();
+        return $query;
+    }
 }

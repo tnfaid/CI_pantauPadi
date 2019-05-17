@@ -150,14 +150,8 @@ class Common_model extends CI_Model {
         return $query;
     }
 
-    function get_all_daun(){
-        $this->db->select('*');
-        $this->db->from('daun');
-        $this->db->order_by('daun.id','DESC');
-        $query = $this->db->get();
-        $query = $query->result_array();
-        return $query;
-    }
+
+
 
     //-- count active, inactive and total user
     function get_user_total(){

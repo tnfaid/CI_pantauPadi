@@ -6,7 +6,7 @@
 
 
         <div class="panel panel-info">
-            <div class="panel-heading"> <i class="fa fa-list"></i> All Daun
+            <div class="panel-heading"> <i class="fa fa-list"></i> All Users
 
 
                 <?php if ($this->session->userdata('role') == 'admin'): ?>
@@ -65,22 +65,24 @@
                     </tfoot>
 
                     <tbody>
-                    <?php foreach ($all_daun as $daun): ?>
+                    <?php foreach ($users as $user): ?>
 
                         <tr>
 
-                            <td><?php echo $daun['jenis_tanaman']; ?></td>
-
+                            <td><?php echo $user['first_name'].' '.$user['last_name']; ?></td>
+                            <td><?php echo $user['email']; ?></td>
+                            <td><?php echo $user['mobile']; ?></td>
+                            <td><?php echo $user['country']; ?></td>
 
                             <td>
-                                <?php if ($daun['status'] == 0): ?>
+                                <?php if ($user['status'] == 0): ?>
                                     <div class="label label-table label-danger">Inactive</div>
                                 <?php else: ?>
                                     <div class="label label-table label-success">Active</div>
                                 <?php endif ?>
                             </td>
                             <td width="10%">
-                                <?php if ($daun['role'] == 'admin'): ?>
+                                <?php if ($user['role'] == 'admin'): ?>
                                     <div class="label label-table label-info"><i class="fa fa-user"></i> admin</div>
                                 <?php else: ?>
                                     <div class="label label-table label-success">user</div>

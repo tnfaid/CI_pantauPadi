@@ -18,6 +18,7 @@ class Crud_daun extends CI_Controller{
 
 
 
+
 //    add new daun by admin
     public function add_data_daun(){
         if ($_POST){
@@ -29,20 +30,24 @@ class Crud_daun extends CI_Controller{
                 'pic_compare'=>$_POST['pic_compare']
             );
             $data = $this->security->xss_clean($data);
+
+//            check duplicate id
             if ($this->common_model->insert($data, 'daun')){
                 $this->session->set_flashdata('msg', 'Data added Successfully');
-                redirect(base_url('admin/daun/all_daun'));
+//                redirect(base_url('admin/daun/all_daun'));
+//                $this->load->view('admin/daun/all_daun', $data);
             }
-//            $this->load->view('admin/daun/all_daun', $data);
+//
         }
     }
 
 //    show semua daun
     public function all_daun_list(){
         $data['page_title'] = 'All Data Daun';
-        $data['all_daun'] = $this->common_model->get_all_daun();
+        $data['all_daun'] = $this->Daun_model->get_all_daun();
 //        $data['count'] = $this->common_model->get_daun_total();
         $data['main_content'] = $this->load->view('admin/daun/all_daun', $data, TRUE);
+//        $data['banyakDaun']=$this->Daun_model->list_all_daun();
         $this->load->view('admin/index', $data);
     }
 
