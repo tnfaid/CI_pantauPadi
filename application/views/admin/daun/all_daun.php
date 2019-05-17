@@ -55,11 +55,11 @@
                     </tfoot>
 
                     <tbody>
-                    <?php foreach ($all_daun as $user): ?>
+                    <?php foreach ($all_daun as $daun): ?>
 
                         <tr>
 
-                            <td><?php echo $user['jenis_tanaman']; ?></td>
+                            <td><?php echo $daun['jenis_tanaman']; ?></td>
 
 <!--                            <td>-->
 <!--                                --><?php //if ($user['status'] == 0): ?>
@@ -81,9 +81,9 @@
 
                                 <?php if ($this->session->userdata('role') == 'admin'): ?>
 
-                                    <a href="<?php echo base_url('admin/user/update/'.$user['id']) ?>"><button type="button" class="btn btn-info btn-circle btn-xs"><i class="fa fa-edit"></i></button></a>
+                                    <a href="<?php echo base_url('admin/user/update/'.$daun['id']) ?>"><button type="button" class="btn btn-info btn-circle btn-xs"><i class="fa fa-edit"></i></button></a>
 
-                                    <a href="<?php echo base_url('admin/user/delete/'.$user['id']) ?>" onClick="return doconfirm();" data-toggle="tooltip" data-original-title="Delete"><button type="button" class="btn btn-danger btn-circle btn-xs"><i class="fa fa-times"></i></button></a>
+                                    <a href="<?php echo base_url('admin/crud_daun/delete_daun/'.$daun['id']) ?>" onClick="return doconfirm();" data-toggle="tooltip" data-original-title="Delete"><button type="button" class="btn btn-danger btn-circle btn-xs"><i class="fa fa-times"></i></button></a>
 
 
                                 <?php else: ?>
@@ -92,14 +92,14 @@
 
                                     <?php if(check_power(2)):?>
 
-                                        <a href="<?php echo base_url('admin/user/update/'.$user['id']) ?>"><button type="button" class="btn btn-success btn-circle btn-xs"><i class="fa fa-edit"></i></button></a>
+                                        <a href="<?php echo base_url('admin/user/update/'.$daun['id']) ?>"><button type="button" class="btn btn-success btn-circle btn-xs"><i class="fa fa-edit"></i></button></a>
 
                                     <?php endif; ?>
 
                                     <?php if(check_power(3)):?>
 
 
-                                        <a href="<?php echo base_url('admin/user/delete/'.$user['id']) ?>" onClick="return doconfirm();" data-toggle="tooltip" data-original-title="Delete"><button type="button" class="btn btn-danger btn-circle btn-xs"><i class="fa fa-times"></i></button></a>
+                                        <a href="<?php echo base_url('admin/Crud_daun/delete_daun/'.$daun['id']) ?>" onClick="return doconfirm();" data-toggle="tooltip" data-original-title="Delete"><button type="button" class="btn btn-danger btn-circle btn-xs"><i class="fa fa-times"></i></button></a>
 
                                     <?php endif; ?>
 
