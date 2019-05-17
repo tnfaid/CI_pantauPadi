@@ -65,7 +65,7 @@
                     </tfoot>
 
                     <tbody>
-                    <?php foreach ($users as $user): ?>
+                    <?php foreach ($all_daun as $user): ?>
 
                         <tr>
 
