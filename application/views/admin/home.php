@@ -46,72 +46,109 @@ Inactive User</a></span>
                                     <h4 style="color:white"><?php echo $count->total; ?></h4>
                                     <span class="text-muted"><a href="" style="color:white">
 Total Users</a></span>
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--					-->
-<!--					-->
-<!--					-->
-<!--					-->
-<!--					-->
-<!--					       <div class="col-md-3 col-sm-6">-->
-<!--                        <div class="white-box bg-info">-->
-<!--                            <div class="r-icon-stats">-->
-<!--                                <i class="ti-user bg-info"></i>-->
-<!--                                <div class="bodystate">-->
-<!--                                    <h4 style="color:white">--><?php //echo $count->admin; ?><!--</h4>-->
-<!--                                    <span class="text-muted"><a href="" style="color:white">-->
-<!--Total Admin</a></span>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="col-md-3 col-sm-6">-->
-<!--                        <div class="white-box bg-danger">-->
-<!--                            <div class="r-icon-stats">-->
-<!--                                <i class="ti-shopping-cart bg-danger"></i>-->
-<!--                                <div class="bodystate">-->
-<!--                                    <h4 style="color:white">--><?php //echo $count->active_user; ?><!--</h4>-->
-<!--                                    <span class="text-muted"><a href="" style="color:white">-->
-<!--Active Users</a></span>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="col-md-3 col-sm-6">-->
-<!--                        <div class="white-box bg-purple">-->
-<!--                            <div class="r-icon-stats">-->
-<!--                                <i class="ti-wallet bg-purple"></i>-->
-<!--                                <div class="bodystate">-->
-<!--                                    <h4 style="color:white">--><?php //echo $count->inactive_user; ?><!--</h4>-->
-<!--                                    <span class="text-muted"><a href="" style="color:white">-->
-<!--Inactive User</a></span>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="col-md-3 col-sm-6">-->
-<!--                        <div class="white-box bg-success">-->
-<!--                            <div class="r-icon-stats">-->
-<!--                                <i class="ti-wallet bg-success"></i>-->
-<!--                                <div class="bodystate">-->
-<!--                                    <h4 style="color:white">--><?php //echo $count->total; ?><!--</h4>-->
-<!--                                    <span class="text-muted"><a href="" style="color:white">-->
-<!--Total Users</a></span>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--					-->
-<!--					-->
-<!--                </div>-->
-                <!--/row -->
-                <!-- /.row -->
-<!--                <div class="row">-->
-<!--                    <div class="col-md-7 col-lg-9 col-sm-12 col-xs-12">-->
-<!--                        <div class="white-box">-->
-<!--                            <h3 class="box-title">Yearly Sales </h3>-->
+                                </div>s
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col-md-7 col-lg-12 col-sm-12 col-xs-12">
+                        <div class="white-box">
+                            <h3 class="box-title">Data Daun </h3>
+
+                            <table id="example23" class="display nowrap" cellspacing="0" width="100%">
+                                <thead>
+                                <tr>
+                                    <th>Jenis Tanaman</th>
+                                    <th>Warna Daun</th>
+                                    <th>Bwd Range</th>
+                                    <th>Solusi</th>
+                                    <th>Gambar</th>
+                                    <th>Action</th>
+                                </tr>
+                                </thead>
+                                <tfoot>
+                                <tr>
+                                    <th>Jenis Tanaman</th>
+                                    <th>Warna Daun</th>
+                                    <th>Bwd Range</th>
+                                    <th>Solusi</th>
+                                    <th>Gambar</th>
+                                    <th>Action</th>
+                                </tr>
+                                </tfoot>
+
+                                <tbody>
+                                <?php foreach ($all_daun as $daun): ?>
+
+                                    <tr>
+
+                                        <td><?php echo $daun['jenis_tanaman']; ?></td>
+                                        <td><?php echo $daun['warna_daun'];?></td>
+                                        <td><?php echo $daun['bwd_range'];?></td>
+                                        <td><?php echo $daun['solusi'];?></td>
+                                        <td><?php echo $daun['pic_compare'];?></td>
+
+                                        <!--                            <td>-->
+                                        <!--                                --><?php //if ($user['status'] == 0): ?>
+                                        <!--                                    <div class="label label-table label-danger">Inactive</div>-->
+                                        <!--                                --><?php //else: ?>
+                                        <!--                                    <div class="label label-table label-success">Active</div>-->
+                                        <!--                                --><?php //endif ?>
+                                        <!--                            </td>-->
+                                        <!--                            <td width="10%">-->
+                                        <!--                                --><?php //if ($user['role'] == 'admin'): ?>
+                                        <!--                                    <div class="label label-table label-info"><i class="fa fa-user"></i> admin</div>-->
+                                        <!--                                --><?php //else: ?>
+                                        <!--                                    <div class="label label-table label-success">user</div>-->
+                                        <!--                                --><?php //endif ?>
+                                        <!--                            </td>-->
+
+                                        <!--                            <td>--><?php //echo my_date_show_time($user['created_at']); ?><!--</td>-->
+                                        <td class="text-nowrap">
+
+                                            <?php if ($this->session->userdata('role') == 'admin'): ?>
+
+                                                <a href="<?php echo base_url('admin/crud_daun/update_daun/'.$daun['id']) ?>"><button type="button" class="btn btn-info btn-circle btn-xs"><i class="fa fa-edit"></i></button></a>
+
+                                                <a href="<?php echo base_url('admin/crud_daun/delete_daun/'.$daun['id']) ?>" onClick="return doconfirm();" data-toggle="tooltip" data-original-title="Delete"><button type="button" class="btn btn-danger btn-circle btn-xs"><i class="fa fa-times"></i></button></a>
+
+
+                                            <?php else: ?>
+
+                                                <!-- check logged user role permissions -->
+
+                                                <?php if(check_power(2)):?>
+
+                                                    <a href="<?php echo base_url('admin/crud_daun/update_daun/'.$daun['id']) ?>"><button type="button" class="btn btn-success btn-circle btn-xs"><i class="fa fa-edit"></i></button></a>
+
+                                                <?php endif; ?>
+
+                                                <?php if(check_power(3)):?>
+
+
+                                                    <a href="<?php echo base_url('admin/crud_daun/delete_daun/'.$daun['id']) ?>" onClick="return doconfirm();" data-toggle="tooltip" data-original-title="Delete"><button type="button" class="btn btn-danger btn-circle btn-xs"><i class="fa fa-times"></i></button></a>
+
+                                                <?php endif; ?>
+
+                                            <?php endif ?>
+
+
+
+
+
+                                        </td>
+                                    </tr>
+
+                                <?php endforeach ?>
+
+                                </tbody>
+
+
+                            </table>
+
 <!--                            <ul class="list-inline text-right">-->
 <!--                                <li>-->
 <!--                                    <h5><i class="fa fa-circle m-r-5" style="color: #00bfc7;"></i>iPhone</h5> </li>-->
@@ -121,8 +158,8 @@ Total Users</a></span>
 <!--                                    <h5><i class="fa fa-circle m-r-5" style="color: #9675ce;"></i>iPod</h5> </li>-->
 <!--                            </ul>-->
 <!--                            <div id="morris-area-chart" style="height: 365px;"></div>-->
-<!--                        </div>-->
-<!--                    </div>-->
+                        </div>
+                    </div>
 <!--                    <div class="col-md-5 col-lg-3 col-sm-6 col-xs-12">-->
 <!--                        <div class="row">-->
 <!--                            <div class="col-md-12">-->
@@ -145,7 +182,7 @@ Total Users</a></span>
 <!--                            <div class="col-md-12">-->
 <!--                                <div class="bg-success m-b-15">-->
 <!--                                    <div id="myCarouse2" class="carousel vcarousel slide p-20">-->
-                                        <!-- Carousel items -->
+<!--                                         Carousel items-->
 <!--                                        <div class="carousel-inner ">-->
 <!--                                            <div class="active item">-->
 <!--                                                <h3 class="text-white">My Acting blown <span class="font-bold">Your Mind</span> and you also laugh at the moment</h3>-->
@@ -175,8 +212,8 @@ Total Users</a></span>
 <!--                        </div>-->
 <!--                    </div>-->
 <!--                </div>-->
-                <!--row -->
-               <!-- .row -->
+<!--                row-->
+<!--                .row-->
 <!--                <div class="row">-->
 <!--                    <div class="col-md-12 col-lg-4  col-xs-12">-->
 <!--                        <div class="white-box">-->
@@ -288,8 +325,8 @@ Total Users</a></span>
 <!--                        </div>-->
 <!--                    </div>-->
 <!--                </div>-->
-                <!-- /.row -->
-               <!--row -->
+<!--                 /.row-->
+<!--               row-->
 <!--                <div class="row">-->
 <!--                    <div class="col-md-12 col-lg-6 col-sm-12">-->
 <!--                        <div class="white-box">-->
@@ -319,7 +356,7 @@ Total Users</a></span>
 <!--                            </div>-->
 <!--                        </div>-->
 <!--                    </div>-->
-<!--					-->
+<!---->
 <!--                    <div class="col-md-12 col-lg-6 col-sm-12">-->
 <!--                        <div class="white-box">-->
 <!--                            <h3 class="box-title">Recent sales-->
@@ -408,15 +445,15 @@ Total Users</a></span>
 <!--                        </div>-->
 <!--                    </div>-->
 <!--                </div>-->
-<!--                 /.row -->
-				
-				 <!-- Row -->
+<!--                 /.row-->
+<!--				-->
+<!--				  Row-->
 <!--    <div class="row">-->
 <!--        <div class="col-lg-12">-->
 <!--            <div class="white-box">-->
 <!--                <div class="card-body">-->
 <!--                    <div id="calendar"></div>-->
-<!--                    BEGIN MODAL -->
+<!--                    BEGIN MODAL-->
 <!--                    <div class="modal fade none-border" id="my-event">-->
 <!--                        <div class="modal-dialog">-->
 <!--                            <div class="modal-content">-->
@@ -433,7 +470,7 @@ Total Users</a></span>
 <!--                            </div>-->
 <!--                        </div>-->
 <!--                    </div>-->
-<!--                     Modal Add Category -->
+<!--                     Modal Add Category-->
 <!--                    <div class="modal fade none-border" id="add-new-event">-->
 <!--                        <div class="modal-dialog">-->
 <!--                            <div class="modal-content">-->
@@ -470,11 +507,11 @@ Total Users</a></span>
 <!--                        </div>-->
 <!---->
 <!--                    </div>-->
-                    <!-- END MODAL -->
+<!--                     END MODAL-->
 <!--                </div>-->
 <!--            </div>-->
 <!--        </div>-->
-<!--        -->
+<!---->
 <!--    </div>-->
-    <!-- Row -->
-    
+<!--     Row-->
+<!--    -->

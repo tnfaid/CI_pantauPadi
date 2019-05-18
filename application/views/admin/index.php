@@ -321,9 +321,9 @@
                     <li class="dropdown">
                         <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#"> <img src="<?php echo base_url();?>optimum/images/admin.jpg" alt="user-img" width="36" class="img-circle"><b class="hidden-xs"><?php echo $this->session->userdata('name'); ?></b> </a>
                         <ul class="dropdown-menu dropdown-user animated flipInY">
-                            <li><a href="javascript:void(0)"><i class="ti-user"></i>  My Profile</a></li>
-                            <li><a href="javascript:void(0)"><i class="ti-email"></i>  Inbox</a></li>
-                            <li><a href="javascript:void(0)"><i class="ti-settings"></i>  Account Setting</a></li>
+<!--                            <li><a href="javascript:void(0)"><i class="ti-user"></i>  My Profile</a></li>-->
+<!--                            <li><a href="javascript:void(0)"><i class="ti-email"></i>  Inbox</a></li>-->
+<!--                            <li><a href="javascript:void(0)"><i class="ti-settings"></i>  Account Setting</a></li>-->
                             <li><a href="<?php echo base_url('auth/logout') ?>"><i class="fa fa-power-off"></i>  Logout</a></li>
                         </ul>
                         <!-- /.dropdown-user -->
@@ -352,16 +352,16 @@
                         <a href="#" class="waves-effect"><img src="<?php echo base_url();?>optimum/images/admin.jpg" alt="user-img" class="img-circle"> <span class="hide-menu"><?php echo $this->session->userdata('name'); ?><span class="fa arrow"></span></span>
                         </a>
                         <ul class="nav nav-second-level">
-                            <li><a href="javascript:void(0)"><i class="ti-user"></i> My Profile</a></li>
-                            <li><a href="javascript:void(0)"><i class="ti-email"></i> Inbox</a></li>
-                            <li><a href="javascript:void(0)"><i class="ti-settings"></i> Account Setting</a></li>
+<!--                            <li><a href="javascript:void(0)"><i class="ti-user"></i> My Profile</a></li>-->
+<!--                            <li><a href="javascript:void(0)"><i class="ti-email"></i> Inbox</a></li>-->
+<!--                            <li><a href="javascript:void(0)"><i class="ti-settings"></i> Account Setting</a></li>-->
                             <li><a href="<?php echo base_url('auth/logout') ?>"><i class="fa fa-power-off"></i> Logout</a></li>
                         </ul>
                     </li>
                     <li> <a href="<?php echo base_url('admin/dashboard') ?>" class="waves-effect"><i class="ti-dashboard p-r-10"></i> <span class="hide-menu">Dashboard</span></a> </li>
 
 <!--                    Menu Tambah User-->
-                    <li> <a href="javascript:void(0);" class="waves-effect"><i class="icon-user p-r-10"></i> <span class="hide-menu"> Create User <span class="fa arrow"></span><span class="label label-rouded label-danger pull-right">3</span></span></a>
+                    <li> <a href="javascript:void(0);" class="waves-effect"><i class="icon-user p-r-10"></i> <span class="hide-menu"> Create User <span class="fa arrow"></span><span class="label label-rouded label-danger pull-right"></span></span></a>
                         <ul class="nav nav-second-level">
 						<?php if ($this->session->userdata('role') == 'admin'): ?>
                              <li> <a href="<?php echo base_url('admin/user') ?>"><i class="fa fa-plus p-r-10"></i><span class="hide-menu">New User</span></a></li>
@@ -376,7 +376,7 @@
                     </li>
 
 <!--                    Menu Tambah warna Daun-->
-                    <li> <a href="javascript:void(0);" class="waves-effect"><i class="fa fa-eye p-r-10"></i> <span class="hide-menu"> Warna Daun <span class="fa arrow"></span><span class="label label-rouded label-danger pull-right">3</span></span></a>
+                    <li> <a href="javascript:void(0);" class="waves-effect"><i class="fa fa-eye p-r-10"></i> <span class="hide-menu"> Warna Daun <span class="fa arrow"></span><span class="label label-rouded label-danger pull-right"></span></span></a>
                         <ul class="nav nav-second-level">
                             <?php if ($this->session->userdata('role') == 'admin'): ?>
                                 <li> <a href="<?php echo base_url('admin/Crud_daun') ?>"><i class="fa fa-plus p-r-10"></i><span class="hide-menu">Informasi Tanaman</span></a></li>

@@ -28,6 +28,7 @@ class Dashboard extends CI_Controller {
         parent::__construct();
         check_login_user();
         $this->load->model('common_model');
+        $this->load->model('Daun_model');
     }
 
     /****************Function login**********************************
@@ -44,6 +45,7 @@ class Dashboard extends CI_Controller {
         $data = array();
         $data['page_title'] = 'Dashboard';
         $data['count'] = $this->common_model->get_user_total();
+        $data['all_daun'] = $this->Daun_model->get_all_daun();
         $data['main_content'] = $this->load->view('admin/home', $data, TRUE);
         $this->load->view('admin/index', $data);
     }
