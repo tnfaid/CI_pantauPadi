@@ -66,4 +66,14 @@ class Daun_model extends CI_Model{
         $query = $query->result_array();
         return $query;
     }
+
+  //    get info single daun
+    function get_single_daun_info($id){
+        $this->db->select('*');
+        $this->db->from('daun');
+        $this->db->where('daun.id',$id);
+        $query = $this->db->get();
+        $query = $query->row();
+        return $query;
+    }
 }

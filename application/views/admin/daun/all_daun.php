@@ -6,18 +6,16 @@
 
 
         <div class="panel panel-info">
-            <div class="panel-heading"> <i class="fa fa-list"></i> All Users
+            <div class="panel-heading"> <i class="fa fa-list"></i>  All Data Daun
 
 
                 <?php if ($this->session->userdata('role') == 'admin'): ?>
-                    <a href="<?php echo base_url('admin/user') ?>" class="btn btn-info btn-sm pull-right"><i class="fa fa-plus"></i>&nbsp;New User</a> &nbsp;
-
-                    <a href="<?php echo base_url('admin/user/power') ?>" class="btn btn-info btn-sm pull-right"><i class="fa fa-plus"></i> &nbsp;User Power</a>
+                    <a href="<?php echo base_url('admin/crud_daun/') ?>" class="btn btn-info btn-sm pull-right"><i class="fa fa-plus"></i>&nbsp;New Daun</a> &nbsp;
                 <?php else: ?>
                     <!-- check logged user role permissions -->
 
                     <?php if(check_power(1)):?>
-                        <a href="<?php echo base_url('admin/user') ?>" class="btn btn-info btn-sm pull-right"><i class="fa fa-plus"></i>&nbsp;New User</a>
+                        <a href="<?php echo base_url('admin/crud_daun/') ?>" class="btn btn-info btn-sm pull-right"><i class="fa fa-plus"></i>&nbsp;New User</a>
                     <?php endif; ?>
                 <?php endif ?>
 
@@ -42,14 +40,20 @@
                     <thead>
                     <tr>
                         <th>Jenis Tanaman</th>
-
+                        <th>Warna Daun</th>
+                        <th>Bwd Range</th>
+                        <th>Solusi</th>
+                        <th>Gambar</th>
                         <th>Action</th>
                     </tr>
                     </thead>
                     <tfoot>
                     <tr>
                         <th>Jenis Tanaman</th>
-
+                        <th>Warna Daun</th>
+                        <th>Bwd Range</th>
+                        <th>Solusi</th>
+                        <th>Gambar</th>
                         <th>Action</th>
                     </tr>
                     </tfoot>
@@ -60,6 +64,10 @@
                         <tr>
 
                             <td><?php echo $daun['jenis_tanaman']; ?></td>
+                            <td><?php echo $daun['warna_daun'];?></td>
+                            <td><?php echo $daun['bwd_range'];?></td>
+                            <td><?php echo $daun['solusi'];?></td>
+                            <td><?php echo $daun['pic_compare'];?></td>
 
 <!--                            <td>-->
 <!--                                --><?php //if ($user['status'] == 0): ?>

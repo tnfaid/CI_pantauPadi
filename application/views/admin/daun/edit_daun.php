@@ -19,14 +19,11 @@
                     </div>
                 <?php endif ?>
 
-                <?php $user = $this->db->query('select * from daun'); ?>
-
-
-                <form method="post" action="<?php echo base_url('admin/crud_daun/update_daun/'.$user->id) ?>" class="form-horizontal" novalidate>
+                <form method="post" action="<?php echo base_url('admin/crud_daun/update_daun/'.$info_daun->id) ?>" class="form-horizontal" novalidate>
                     <div class="form-group">
                         <label class="col-md-12" for="example-text">Jenis Tanaman</label>
                         <div class="col-sm-12">
-                            <input type="text" name="jenis_tanaman" class="form-control" value="<?php echo $user->jenis_tanaman; ?>">
+                            <input type="text" name="jenis_tanaman" class="form-control" value="<?php echo $info_daun->jenis_tanaman; ?>">
                         </div>
                     </div>
 
@@ -34,7 +31,7 @@
                     <div class="form-group">
                         <label class="col-md-12" for="example-text">Warna Daun</label>
                         <div class="col-sm-12">
-                            <input type="text" name="warna_daun" class="form-control" value="<?php echo $user->warna_Daun; ?>">
+                            <input type="text" name="warna_daun" class="form-control" value="<?php echo $info_daun->warna_daun; ?>">
                         </div>
                     </div>
 
@@ -42,21 +39,21 @@
                     <div class="form-group">
                         <label class="col-md-12" for="example-text">BWD Range</label>
                         <div class="col-sm-12">
-                            <input type="text" name="bwd_range" class="form-control" value="<?php echo $user->bwd_range; ?>">
+                            <input type="text" name="bwd_range" class="form-control" value="<?php echo $info_daun->bwd_range; ?>">
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="col-md-12" for="example-text">Solusi</label>
                         <div class="col-sm-12">
-                            <input type="text" name="solusi" class="form-control" value="<?php echo $user->solusi; ?>">
+                            <input type="text" name="solusi" class="form-control" value="<?php echo $info_daun->solusi; ?>">
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="col-md-12" for="example-text">Gambar Referensi</label>
                         <div class="col-sm-12">
-                            <input type="text" name="pic_compare" class="form-control" value="<?php echo $user->pic_comapare; ?>">
+                            <input type="text" name="pic_compare" class="form-control" value="<?php echo $info_daun->pic_compare; ?>">
                         </div>
                     </div>
 

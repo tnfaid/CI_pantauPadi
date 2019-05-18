@@ -80,7 +80,7 @@ class Crud_daun extends CI_Controller{
             redirect(base_url('admin/Crud_daun/all_daun_list'));
         }
 
-        $data['jenis_tanaman'] = $this->common_model->get_single_user_info($id);
+        $data['info_daun'] = $this->Daun_model->get_single_daun_info($id);
         $data['user_role'] = $this->common_model->get_user_role($id);
         $data['power'] = $this->common_model->select('user_power');
         $data['country'] = $this->common_model->select('country');
