@@ -1,40 +1,73 @@
 <?php
 include 'koneksi.php';
 
-class usr{}
+//class usr{}
+//
+//$email = $_POST["email"];
+//$password = $_POST["password"];
+//
+//
+//if ((empty($email)) || (empty($password))) {
+//    $response = new usr();
+//    $response->success = 0;
+//    $response->message = "Kolom tidak boleh kosong";
+//    die(json_encode($response));
+//}
+//
+//$query = mysql_query("SELECT * FROM user WHERE email='$email' AND password='$password'");
+//
+//$row = mysql_fetch_array($query);
+//
+//if (!empty($row)){
+//    $response = new usr();
+//    $response->success = 1;
+//    $response->message = "Selamat datang ".$row['username'];
+//    $response->id = $row['id'];
+//    $response->username = $row['username'];
+//    die(json_encode($response));
+//
+//} else {
+//    $response = new usr();
+//    $response->success = 0;
+//    $response->message = "Username atau password salah";
+//    die(json_encode($response));
+//}
 
-$email = $_POST["email"];
-$password = $_POST["password"];
+//mysql_close();
 
+//== mysqli
+ //include_once "koneksi.php";
 
-if ((empty($email)) || (empty($password))) {
-    $response = new usr();
-    $response->success = 0;
-    $response->message = "Kolom tidak boleh kosong";
-    die(json_encode($response));
-}
+ class usr{}
 
-$query = mysql_query("SELECT * FROM user WHERE email='$email' AND password='$password'");
+ $email = $_POST["email"];
+ $password =md5($_POST["password"]) ;
 
-$row = mysql_fetch_array($query);
+ if ((empty($email)) || (empty($password))) {
+ 	$response = new usr();
+ 	$response->success = 0;
+ 	$response->message = "Kolom tidak boleh kosong";
+ 	die(json_encode($response));
+ }
 
-if (!empty($row)){
-    $response = new usr();
-    $response->success = 1;
-    $response->message = "Selamat datang ".$row['username'];
-    $response->id = $row['id'];
-    $response->username = $row['username'];
-    die(json_encode($response));
+ $query = mysqli_query($con, "SELECT * FROM user WHERE email='$email' AND password='$password'");
 
-} else {
-    $response = new usr();
-    $response->success = 0;
-    $response->message = "Username atau password salah";
-    die(json_encode($response));
-}
+ $row = mysqli_fetch_array($query);
 
-mysql_close();
+ if (!empty($row)){
+ 	$response = new usr();
+ 	$response->success = 1;
+ 	$response->message = "Selamat datang ".$row['username'];
+ 	$response->id = $row['id'];
+ 	$response->email = $row['email'];
+ 	die(json_encode($response));
 
+ } else {
+ 	$response = new usr();
+ 	$response->success = 0;
+ 	$response->message = "Username atau password salah";
+ 	die(json_encode($response));
+ }
 
-
+ mysqli_close($con);
 ?>
