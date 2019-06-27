@@ -22,7 +22,7 @@
 
                 <form method="post" action="<?php echo base_url('admin/crud_daun/add_data_daun') ?>" class="form-horizontal" novalidate>
                     <div class="form-group">
-                        <label class="col-md-12" for="example-text">Jenis Tanaman</label>
+                        <label class="col-md-12" for="example-text">Nama Penyakit</label>
                         <div class="col-sm-12">
                             <input type="text" name="jenis_tanaman" class="form-control">
                         </div>
@@ -30,17 +30,9 @@
 
 
                     <div class="form-group">
-                        <label class="col-md-12" for="example-text">Warna Daun</label>
+                        <label class="col-md-12" for="example-text">Kondisi</label>
                         <div class="col-sm-12">
-                            <input type="text" name="warna_daun" class="form-control" required data-validation-required-message="Last Name is required">
-                        </div>
-                    </div>
-
-
-                    <div class="form-group">
-                        <label class="col-md-12" for="example-text">BWD Range</label>
-                        <div class="col-sm-12">
-                            <input type="text" name="bwd_range" class="form-control" required data-validation-required-message="Email is required">
+                            <input type="text" name="kondisi" class="form-control" required data-validation-required-message="Email is required">
                         </div>
                     </div>
 

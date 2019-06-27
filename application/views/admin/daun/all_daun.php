@@ -40,8 +40,7 @@
                     <thead>
                     <tr>
                         <th>Jenis Tanaman</th>
-                        <th>Warna Daun</th>
-                        <th>Bwd Range</th>
+                        <th>Kondisi</th>
                         <th>Solusi</th>
                         <th>Gambar</th>
                         <th>Action</th>
@@ -50,8 +49,7 @@
                     <tfoot>
                     <tr>
                         <th>Jenis Tanaman</th>
-                        <th>Warna Daun</th>
-                        <th>Bwd Range</th>
+                        <th>Kondisi</th>
                         <th>Solusi</th>
                         <th>Gambar</th>
                         <th>Action</th>
@@ -64,8 +62,7 @@
                         <tr>
 
                             <td><?php echo $daun['jenis_tanaman']; ?></td>
-                            <td><?php echo $daun['warna_daun'];?></td>
-                            <td><?php echo $daun['bwd_range'];?></td>
+                            <td><?php echo $daun['kondisi'];?></td>
                             <td><?php echo $daun['solusi'];?></td>
                             <td><?php echo $daun['pic_compare'];?></td>
 

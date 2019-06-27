@@ -23,7 +23,7 @@ class Crud_daun extends CI_Controller{
             $data = array(
                 'jenis_tanaman' => $_POST['jenis_tanaman'],
                 'warna_daun' => $_POST['warna_daun'],
-                'bwd_range' =>$_POST['bwd_range'],
+                'kondisi' =>$_POST['kondisi'],
                 'solusi'=>$_POST['solusi'],
                 'pic_compare'=>$_POST['pic_compare']
             );
@@ -59,7 +59,7 @@ class Crud_daun extends CI_Controller{
             $data = array(
                 'jenis_tanaman' => $_POST['jenis_tanaman'],
                 'warna_daun' => $_POST['warna_daun'],
-                'bwd_range' => $_POST['bwd_range'],
+                'kondisi' => $_POST['kondisi'],
                 'solusi' => $_POST['solusi'],
                 'pic_compare' => $_POST['pic_compare']
             );

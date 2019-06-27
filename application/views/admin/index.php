@@ -361,31 +361,31 @@
                     <li> <a href="<?php echo base_url('admin/dashboard') ?>" class="waves-effect"><i class="ti-dashboard p-r-10"></i> <span class="hide-menu">Dashboard</span></a> </li>
 
 <!--                    Menu Tambah User-->
-                    <li> <a href="javascript:void(0);" class="waves-effect"><i class="icon-user p-r-10"></i> <span class="hide-menu"> Create User <span class="fa arrow"></span><span class="label label-rouded label-danger pull-right"></span></span></a>
+                    <li> <a href="javascript:void(0);" class="waves-effect"><i class="icon-user p-r-10"></i> <span class="hide-menu"> Pengguna <span class="fa arrow"></span><span class="label label-rouded label-danger pull-right"></span></span></a>
                         <ul class="nav nav-second-level">
 						<?php if ($this->session->userdata('role') == 'admin'): ?>
-                             <li> <a href="<?php echo base_url('admin/user') ?>"><i class="fa fa-plus p-r-10"></i><span class="hide-menu">New User</span></a></li>
-							 <li> <a href="<?php echo base_url('admin/user/power') ?>"><i class="fa fa-cog p-r-10"></i><span class="hide-menu">User Function</span></a></li>
+                             <li> <a href="<?php echo base_url('admin/user') ?>"><i class="fa fa-plus p-r-10"></i><span class="hide-menu">Pengguna Baru</span></a></li>
+<!--							 <li> <a href="--><?php //echo base_url('admin/user/power') ?><!--"><i class="fa fa-cog p-r-10"></i><span class="hide-menu">User Function</span></a></li>-->
 							  <?php else: ?>
 							   <?php if(check_power(1)):?>
-                            <li> <a href="<?php echo base_url('admin/user') ?>"><i class="fa fa-plus p-r-10"></i><span class="hide-menu">New User</span></a></li>
+                            <li> <a href="<?php echo base_url('admin/user') ?>"><i class="fa fa-plus p-r-10"></i><span class="hide-menu">Tambahkan Pengguna Baru</span></a></li>
                             <?php endif; ?>
                             <?php endif ?>
-						<li><a href="<?php echo base_url('admin/user/all_user_list') ?>"><i class="fa fa-list p-r-10"></i><span class="hide-menu">All Users</span></a></li>
+						<li><a href="<?php echo base_url('admin/user/all_user_list') ?>"><i class="fa fa-list p-r-10"></i><span class="hide-menu">Semua Pengguna</span></a></li>
                       </ul>
                     </li>
 
 <!--                    Menu Tambah warna Daun-->
-                    <li> <a href="javascript:void(0);" class="waves-effect"><i class="fa fa-eye p-r-10"></i> <span class="hide-menu"> Warna Daun <span class="fa arrow"></span><span class="label label-rouded label-danger pull-right"></span></span></a>
+                    <li> <a href="javascript:void(0);" class="waves-effect"><i class="fa fa-eye p-r-10"></i> <span class="hide-menu"> Data Penyakit Daun <span class="fa arrow"></span><span class="label label-rouded label-danger pull-right"></span></span></a>
                         <ul class="nav nav-second-level">
                             <?php if ($this->session->userdata('role') == 'admin'): ?>
-                                <li> <a href="<?php echo base_url('admin/Crud_daun') ?>"><i class="fa fa-plus p-r-10"></i><span class="hide-menu">Informasi Tanaman</span></a></li>
+                                <li> <a href="<?php echo base_url('admin/Crud_daun') ?>"><i class="fa fa-plus p-r-10"></i><span class="hide-menu">Data Penyakit Daun</span></a></li>
                             <?php else: ?>
                                 <?php if(check_power(1)):?>
-                                    <li> <a href="<?php echo base_url('admin/Crud_daun') ?>"><i class="fa fa-plus p-r-10"></i><span class="hide-menu">New User</span></a></li>
+                                    <li> <a href="<?php echo base_url('admin/Crud_daun') ?>"><i class="fa fa-plus p-r-10"></i><span class="hide-menu">Data Penyakit Daun</span></a></li>
                                 <?php endif; ?>
                             <?php endif ?>
-                            <li><a href="<?php echo base_url('admin/Crud_daun/all_daun_list') ?>"><i class="fa fa-list p-r-10"></i><span class="hide-menu">All Users</span></a></li>
+                            <li><a href="<?php echo base_url('admin/Crud_daun/all_daun_list') ?>"><i class="fa fa-list p-r-10"></i><span class="hide-menu">Semua Penyakit Daun</span></a></li>
                         </ul>
                     </li>
 <!--                    <li> <a href="javascript:void(0);" class="waves-effect"><i class="icon-envelope p-r-10"></i> <span class="hide-menu"> Mailbox <span class="fa arrow"></span><span class="label label-rouded label-danger pull-right">6</span></span></a>-->

@@ -8,6 +8,7 @@ class Daun_model extends CI_Model{
     private $_jenis_tanaman;
     private $_warna_daun;
     private $_bwd_range;
+    private $_kondisi;
     private $_solusi;
     private $_pic_compare = "default.jpg";
 
@@ -27,6 +28,12 @@ class Daun_model extends CI_Model{
         $this->_bwd_range = $_bwd_range;
     }
 
+
+    public function setKondisi($kondisi)
+    {
+        $this->_kondisi = $kondisi;
+    }
+
     public function setSolusi($_solusi){
         $this->_solusi = $_solusi;
     }
@@ -40,7 +47,7 @@ class Daun_model extends CI_Model{
             'id' => $this->_id,
             'jenis_tanaman' => $this->_jenis_tanaman,
             'warna_daun' => $this->_warna_daun,
-            'bwd_range' => $this->_bwd_range,
+            'kondisi' => $this->_kondisi,
             'solusi' => $this->_solusi,
             'pic_compare' => $this->_pic_compare
         );

@@ -28,18 +28,11 @@
                     </div>
 
 
-                    <div class="form-group">
-                        <label class="col-md-12" for="example-text">Warna Daun</label>
-                        <div class="col-sm-12">
-                            <input type="text" name="warna_daun" class="form-control" value="<?php echo $info_daun->warna_daun; ?>">
-                        </div>
-                    </div>
-
 
                     <div class="form-group">
-                        <label class="col-md-12" for="example-text">BWD Range</label>
+                        <label class="col-md-12" for="example-text">Kondisi</label>
                         <div class="col-sm-12">
-                            <input type="text" name="bwd_range" class="form-control" value="<?php echo $info_daun->bwd_range; ?>">
+                            <input type="text" name="kondisi" class="form-control" value="<?php echo $info_daun->kondisi; ?>">
                         </div>
                     </div>
 
