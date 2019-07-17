@@ -19,16 +19,26 @@
                     </div>
                 <?php endif ?>
 
-                <form method="post" action="<?php echo base_url('admin/crud_daun/update_daun/'.$info_daun->id) ?>" class="form-horizontal" novalidate>
+                <form method="post" action="<?php echo base_url('admin/crud_daun/update_daun/'.$info_daun->id) ?>" class="form-horizontal" enctype="multipart/form-data" novalidate>
                     <div class="form-group">
-                        <label class="col-md-12" for="example-text">Jenis Tanaman</label>
+                        <label class="col-md-12" for="example-text">Nama Penyakit</label>
                         <div class="col-sm-12">
-                            <input type="text" name="jenis_tanaman" class="form-control" value="<?php echo $info_daun->jenis_tanaman; ?>">
+                            <input type="text" name="nama_penyakit" class="form-control" value="<?php echo $info_daun->nama_penyakit; ?>">
                         </div>
                     </div>
 
-
-
+                    <div class="form-group">
+                        <label class="col-md-12" for="example-text">Usia</label>
+                        <div class="col-sm-12">
+                            <input type="text" name="usia" class="form-control" value="<?php echo $info_daun->usia; ?>">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-12" for="example-text">Warna</label>
+                        <div class="col-sm-12">
+                            <input type="text" name="warna" class="form-control" value="<?php echo $info_daun->value_warna; ?>">
+                        </div>
+                    </div>
                     <div class="form-group">
                         <label class="col-md-12" for="example-text">Kondisi</label>
                         <div class="col-sm-12">
@@ -45,8 +55,9 @@
 
                     <div class="form-group">
                         <label class="col-md-12" for="example-text">Gambar Referensi</label>
-                        <div class="col-sm-12">
-                            <input type="text" name="pic_compare" class="form-control" value="<?php echo $info_daun->pic_compare; ?>">
+                        <div class="col-xs-9">
+                                <input name="gambar" id="gambar" class="form-control" value="<?php echo $info_daun->gambar; ?>" type="file">
+                                <input type="hidden" name="old_image" value="<?php echo $info_daun->gambar ?>" />
                         </div>
                     </div>
 

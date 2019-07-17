@@ -56,25 +56,35 @@ Total Users</a></span>
                 <div class="row">
                     <div class="col-md-7 col-lg-12 col-sm-12 col-xs-12">
                         <div class="white-box">
+                            <div class="panel-body table-responsive">
                             <h3 class="box-title">Data Daun </h3>
 
                             <table id="example23" class="display nowrap" cellspacing="0" width="100%">
                                 <thead>
                                 <tr>
-                                    <th>Jenis Tanaman</th>
+                                    <th>Action</th>
+                                    <th>Gambar</th>
+                                    <th>Nama Penyakit</th>
+                                    <th>Penulis</th>
+                                    <th>Usia</th>
+                                    <th>Warna</th>
+                                    <th>Tanggal Upload</th>
                                     <th>Kondisi</th>
                                     <th>Solusi</th>
-                                    <th>Gambar</th>
-                                    <th>Action</th>
+
                                 </tr>
                                 </thead>
                                 <tfoot>
                                 <tr>
-                                    <th>Jenis Tanaman</th>
+                                    <th>Action</th>
+                                    <th>Gambar</th>
+                                    <th>Nama Penyakit</th>
+                                    <th>Penulis</th>
+                                    <th>Usia</th>
+                                    <th>Warna</th>
+                                    <th>Tanggal Upload</th>
                                     <th>Kondisi</th>
                                     <th>Solusi</th>
-                                    <th>Gambar</th>
-                                    <th>Action</th>
                                 </tr>
                                 </tfoot>
 
@@ -82,28 +92,6 @@ Total Users</a></span>
                                 <?php foreach ($all_daun as $daun): ?>
 
                                     <tr>
-
-                                        <td><?php echo $daun['jenis_tanaman']; ?></td>
-                                        <td><?php echo $daun['kondisi'];?></td>
-                                        <td><?php echo $daun['solusi'];?></td>
-                                        <td><?php echo $daun['pic_compare'];?></td>
-
-                                        <!--                            <td>-->
-                                        <!--                                --><?php //if ($user['status'] == 0): ?>
-                                        <!--                                    <div class="label label-table label-danger">Inactive</div>-->
-                                        <!--                                --><?php //else: ?>
-                                        <!--                                    <div class="label label-table label-success">Active</div>-->
-                                        <!--                                --><?php //endif ?>
-                                        <!--                            </td>-->
-                                        <!--                            <td width="10%">-->
-                                        <!--                                --><?php //if ($user['role'] == 'admin'): ?>
-                                        <!--                                    <div class="label label-table label-info"><i class="fa fa-user"></i> admin</div>-->
-                                        <!--                                --><?php //else: ?>
-                                        <!--                                    <div class="label label-table label-success">user</div>-->
-                                        <!--                                --><?php //endif ?>
-                                        <!--                            </td>-->
-
-                                        <!--                            <td>--><?php //echo my_date_show_time($user['created_at']); ?><!--</td>-->
                                         <td class="text-nowrap">
 
                                             <?php if ($this->session->userdata('role') == 'admin'): ?>
@@ -131,12 +119,36 @@ Total Users</a></span>
                                                 <?php endif; ?>
 
                                             <?php endif ?>
-
-
-
-
-
                                         </td>
+                                        <td class="text-center"> 
+                                            <img class="img-thumbnail" src="<?php echo base_url('gambar_unggah/daun/'.$daun['gambar']) ?>" height="64" width="64">  
+                                        </td>
+                                        <td><?php echo $daun['nama_penyakit']; ?></td>
+                                        <td><?php echo $daun['penulis']; ?></td>
+                                        <td><?php echo $daun['usia']; ?></td>
+                                        <td><?php echo $daun['value_warna']; ?></td>
+                                        <td><?php echo $daun['tanggal_upload']; ?></td>
+                                        <td><?php echo $daun['kondisi'];?></td>
+                                        <td><?php echo $daun['solusi'];?></td>
+
+
+                                        <!--                            <td>-->
+                                        <!--                                --><?php //if ($user['status'] == 0): ?>
+                                        <!--                                    <div class="label label-table label-danger">Inactive</div>-->
+                                        <!--                                --><?php //else: ?>
+                                        <!--                                    <div class="label label-table label-success">Active</div>-->
+                                        <!--                                --><?php //endif ?>
+                                        <!--                            </td>-->
+                                        <!--                            <td width="10%">-->
+                                        <!--                                --><?php //if ($user['role'] == 'admin'): ?>
+                                        <!--                                    <div class="label label-table label-info"><i class="fa fa-user"></i> admin</div>-->
+                                        <!--                                --><?php //else: ?>
+                                        <!--                                    <div class="label label-table label-success">user</div>-->
+                                        <!--                                --><?php //endif ?>
+                                        <!--                            </td>-->
+
+                                        <!--                            <td>--><?php //echo my_date_show_time($user['created_at']); ?><!--</td>-->
+
                                     </tr>
 
                                 <?php endforeach ?>

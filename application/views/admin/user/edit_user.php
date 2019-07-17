@@ -40,7 +40,7 @@
                            <div class="form-group">
                  	<label class="col-md-12" for="example-text">Email</label>
                     <div class="col-sm-12">
-                   <input type="text" name="mobile" class="form-control" value="<?php echo $user->mobile; ?>">
+                   <input type="text" name="email" class="form-control" value="<?php echo $user->email; ?>">
                                         </div>
                                     </div>
                               

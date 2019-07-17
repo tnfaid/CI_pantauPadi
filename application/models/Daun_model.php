@@ -5,51 +5,100 @@ class Daun_model extends CI_Model{
     private $_table = "daun";
 
     private $_id;
-    private $_jenis_tanaman;
-    private $_warna_daun;
-    private $_bwd_range;
+    private $_user_id;
+    private $_nama_penyakit;
     private $_kondisi;
     private $_solusi;
-    private $_pic_compare = "default.jpg";
+    private $_penulis;
+    private $_tanggal_upload;
+    private $_value_warna;
+    private $_usia;
+    private $_gambar = "default.jpg";
 
-    public function setDaunID($_id){
-        $this->_id = $_id;
+    /**
+     * @param mixed $id
+     */
+    public function setId($id)
+    {
+        $this->_id = $id;
     }
 
-    public function setJenisTanaman($_jenis_tanaman){
-        $this->_jenis_tanaman = $_jenis_tanaman;
+    /**
+     * @param mixed $user_id
+     */
+    public function setUserId($user_id)
+    {
+        $this->_user_id = $user_id;
     }
 
-    public function  setWarnaDaun($_warna_daun){
-        $this->_warna_daun = $_warna_daun;
+    /**
+     * @param mixed $nama_penyakit
+     */
+    public function setNamaPenyakit($nama_penyakit)
+    {
+        $this->_nama_penyakit = $nama_penyakit;
     }
 
-    public function  setBwdRange($_bwd_range){
-        $this->_bwd_range = $_bwd_range;
-    }
-
-
+    /**
+     * @param mixed $kondisi
+     */
     public function setKondisi($kondisi)
     {
         $this->_kondisi = $kondisi;
     }
 
-    public function setSolusi($_solusi){
-        $this->_solusi = $_solusi;
+    /**
+     * @param mixed $solusi
+     */
+    public function setSolusi($solusi)
+    {
+        $this->_solusi = $solusi;
     }
 
-    public function setPicCompare($_pic_compare){
-        $this->_pic_compare = $_pic_compare;
+    /**
+     * @param mixed $penulis
+     */
+    public function setPenulis($penulis)
+    {
+        $this->_penulis = $penulis;
     }
+
+    /**
+     * @param mixed $tanggal_upload
+     */
+    public function setTanggalUpload($tanggal_upload)
+    {
+        $this->_tanggal_upload = $tanggal_upload;
+    }
+
+    /**
+     * @param mixed $value_warna
+     */
+    public function setValueWarna($value_warna)
+    {
+        $this->_value_warna = $value_warna;
+    }
+
+    /**
+     * @param mixed $usia
+     */
+    public function setUsia($usia)
+    {
+        $this->_usia = $usia;
+    }
+
 
     public function createDaun() {
         $data  = array(
             'id' => $this->_id,
-            'jenis_tanaman' => $this->_jenis_tanaman,
-            'warna_daun' => $this->_warna_daun,
+            'nama_penyakit' => $this->_nama_penyakit,
+            'value_warna' => $this->_value_warna,
             'kondisi' => $this->_kondisi,
             'solusi' => $this->_solusi,
-            'pic_compare' => $this->_pic_compare
+            'tanggal_upload' => $this->_tanggal_upload,
+            'penulis' => $this->_penulis,
+            'usia' => $this->_usia,
+            'gambar' => $this->gambar
         );
         $this->db->insert('daun', $data);
         return $this->db->insert_id();
@@ -82,5 +131,18 @@ class Daun_model extends CI_Model{
         $query = $this->db->get();
         $query = $query->row();
         return $query;
+    }
+
+    public function getTotalDaun()
+    {   
+        $query = $this->db->get($this->_table);
+        if($query->num_rows()>0)
+        {
+        return $query->num_rows();
+        }
+        else
+        {
+        return 0;
+        }
     }
 }

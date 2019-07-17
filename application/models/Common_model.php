@@ -7,6 +7,7 @@ class Common_model extends CI_Model {
         return $this->db->insert_id();
     }
 
+
     //-- edit function
     function edit_option($action, $id, $table){
         $this->db->where('id',$id);
@@ -175,9 +176,19 @@ class Common_model extends CI_Model {
                             )
                             AS admin',TRUE);
 
-        $this->db->from('user');
+        $this->db->from('user','daun');
         $query = $this->db->get();
         $query = $query->row();  
+        return $query;
+    }
+
+    function get_daun_total(){
+        $this->db->select('*');
+        $this->db->select('itung(*) as totalDaun');
+        $this->db->select('(SELECT itung(daun.id) FROM daun) AS jumlah_semua_daun', TRUE);
+        $this->db->from('daun');
+        $query = $this->db->get();
+        $query = $query->row();
         return $query;
     }
 

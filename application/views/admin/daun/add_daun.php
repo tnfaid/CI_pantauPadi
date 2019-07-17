@@ -20,11 +20,11 @@
                 <?php endif ?>
 
 
-                <form method="post" action="<?php echo base_url('admin/crud_daun/add_data_daun') ?>" class="form-horizontal" novalidate>
+                <form method="post" action="<?php echo base_url('admin/crud_daun/add_data_daun') ?>" class="form-horizontal" enctype="multipart/form-data" novalidate >
                     <div class="form-group">
                         <label class="col-md-12" for="example-text">Nama Penyakit</label>
                         <div class="col-sm-12">
-                            <input type="text" name="jenis_tanaman" class="form-control">
+                            <input type="text" name="nama_penyakit" class="form-control">
                         </div>
                     </div>
 
@@ -32,7 +32,7 @@
                     <div class="form-group">
                         <label class="col-md-12" for="example-text">Kondisi</label>
                         <div class="col-sm-12">
-                            <input type="text" name="kondisi" class="form-control" required data-validation-required-message="Email is required">
+                            <input type="text" name="kondisi" class="form-control" required data-validation-required-message="Kondisi sangat dibutuhakn">
                         </div>
                     </div>
 
@@ -40,7 +40,21 @@
                     <div class="form-group">
                         <label class="col-md-12" for="example-text">Solusi</label>
                         <div class="col-sm-12">
-                            <input type="text" name="solusi" class="form-control" required data-validation-required-message="Password is required">
+                            <input type="text" name="solusi" class="form-control" required data-validation-required-message="Solusi is required">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-12" for="example-text">Nilai Warna</label>
+                        <div class="col-sm-12">
+                            <input type="text" name="value_warna" class="form-control" required data-validation-required-message="Nilai Warna is required">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-12" for="example-text">Usia (satuan hari)</label>
+                        <div class="col-sm-12">
+                            <input type="text" name="usia" class="form-control" required data-validation-required-message="Usia is required">
                         </div>
                     </div>
 
@@ -48,7 +62,7 @@
                     <div class="form-group">
                         <label class="col-md-12" for="example-text">Gambar</label>
                         <div class="col-sm-12">
-                            <input type="text" name="pic_compare" class="form-control">
+                            <td><input type="file" name="gambar"></td>
                         </div>
                     </div>
 

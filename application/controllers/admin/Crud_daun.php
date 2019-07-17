@@ -1,6 +1,7 @@
 <?php
 
 class Crud_daun extends CI_Controller{
+       
     public function __construct()
     {
         parent::__construct();
@@ -16,25 +17,98 @@ class Crud_daun extends CI_Controller{
         $this->load->view('admin/index', $data);
     }
 
+    public function add_data_daun(){ 
+        date_default_timezone_set("ASIA/JAKARTA");
+        $now = date('Y-m-d H:i:s');
+        $data['total'] = $this->Daun_model->getTotalDaun(); 
 
-//    add new daun by admin
-    public function add_data_daun(){
         if ($_POST){
             $data = array(
-                'jenis_tanaman' => $_POST['jenis_tanaman'],
-                'warna_daun' => $_POST['warna_daun'],
+                'nama_penyakit' => $_POST['nama_penyakit'],
                 'kondisi' =>$_POST['kondisi'],
                 'solusi'=>$_POST['solusi'],
-                'pic_compare'=>$_POST['pic_compare']
+                'value_warna'=>$_POST['value_warna'],
+                'usia'=>$_POST['usia'],
+                'penulis'=>"Admin",
+                'tanggal_upload'=>$now,
+                'gambar'=> $this->_uploadImage()  
             );
-            $data = $this->security->xss_clean($data);
+       
 
             $this->common_model->insert($data, 'daun');
             $this->session->set_flashdata('msg', 'Data added Successfully');
             redirect(base_url('admin/Crud_daun/all_daun_list'));
+            $this->result_array();
 
         }
     }
+
+     public function update_daun($id)
+    {
+        if($_POST)
+        {
+            $data = array(
+                'nama_penyakit' => $_POST['nama_penyakit'],
+                'kondisi' =>$_POST['kondisi'],
+                'solusi'=>$_POST['solusi'],
+                'value_warna'=>$_POST['value_warna'],
+                'usia'=>$_POST['usia']
+            );
+            $data = $this->security->xss_clean($data);
+
+            if (!empty($_FILES["gambar"]["name"])) {
+                    $_POST['gambar'] = $this->_uploadImage();
+            } else {
+                    $_POST['gambar'] = $_POST["old_image"];
+            }
+            
+
+            $powers = $this->input->post('role_action');
+            if (!empty($powers)){
+                $this->common_model->delete_user_role($id, 'user_role');
+                foreach ($powers as $value){
+                    $role_data = array(
+                        'user_id' => $id,
+                        'action' => $value
+                    );
+                }
+            }
+            
+
+            $this->common_model->edit_option($data, $id, 'daun');
+            $this->session->set_flashdata('msg', 'Data Daun Sukses Diupdate');
+            redirect(base_url('admin/Crud_daun/all_daun_list'));
+        }
+
+        $data['info_daun'] = $this->Daun_model->get_single_daun_info($id);
+        $data['user_role'] = $this->common_model->get_user_role($id);
+        $data['power'] = $this->common_model->select('user_power');
+        $data['country'] = $this->common_model->select('country');
+        $data['main_content'] = $this->load->view('admin/daun/edit_daun', $data, TRUE);
+        $data['page_title'] = 'Edit Data Daun';
+        $this->load->view('admin/index', $data);
+    }
+
+    private function _uploadImage()
+    {
+        $config['upload_path']          = './gambar_unggah/daun/';
+        $config['allowed_types']        = 'gif|jpg|png';
+        $config['file_name']            = $_POST['nama_penyakit'];
+        $config['overwrite']            = true;
+        $config['max_size']             = 4000; // 1MB
+        // $config['max_width']            = 1024;
+        // $config['max_height']           = 768;
+
+        $this->load->library('upload', $config);
+
+        if ($this->upload->do_upload('gambar')) {
+            return $this->upload->data("file_name");
+        }
+        
+        return "default.jpg";
+    }
+
+    
 
 //    show semua daun
     public function all_daun_list(){
@@ -52,40 +126,5 @@ class Crud_daun extends CI_Controller{
 
     }
 
-    public function update_daun($id)
-    {
-        if($_POST)
-        {
-            $data = array(
-                'jenis_tanaman' => $_POST['jenis_tanaman'],
-                'warna_daun' => $_POST['warna_daun'],
-                'kondisi' => $_POST['kondisi'],
-                'solusi' => $_POST['solusi'],
-                'pic_compare' => $_POST['pic_compare']
-            );
-            $data = $this->security->xss_clean($data);
-
-            $powers = $this->input->post('role_action');
-            if (!empty($powers)){
-                $this->common_model->delete_user_role($id, 'user_role');
-                foreach ($powers as $value){
-                    $role_data = array(
-                        'user_id' => $id,
-                        'action' => $value
-                    );
-                }
-            }
-            $this->common_model->edit_option($data, $id, 'daun');
-            $this->session->set_flashdata('msg', 'Data Daun Sukses Diupdate');
-            redirect(base_url('admin/Crud_daun/all_daun_list'));
-        }
-
-        $data['info_daun'] = $this->Daun_model->get_single_daun_info($id);
-        $data['user_role'] = $this->common_model->get_user_role($id);
-        $data['power'] = $this->common_model->select('user_power');
-        $data['country'] = $this->common_model->select('country');
-        $data['main_content'] = $this->load->view('admin/daun/edit_daun', $data, TRUE);
-        $data['page_title'] = 'Edit Data Daun';
-        $this->load->view('admin/index', $data);
-    }
+   
 }
