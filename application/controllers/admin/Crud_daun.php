@@ -92,9 +92,10 @@ class Crud_daun extends CI_Controller{
 
     private function _uploadImage()
     {
-        $config['upload_path']          = './gambar_unggah/daun/';
+        $file_name = "uploads/".$_POST['nama_penyakit'].".hore";
+        $config['upload_path']          = './webService/uploads/';
         $config['allowed_types']        = 'gif|jpg|png';
-        $config['file_name']            = $_POST['nama_penyakit'];
+        $config['file_name']            = $file_name;
         $config['overwrite']            = true;
         $config['max_size']             = 4000; // 1MB
         // $config['max_width']            = 1024;

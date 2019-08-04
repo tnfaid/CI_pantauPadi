@@ -13,7 +13,7 @@ class Daun_model extends CI_Model{
     private $_tanggal_upload;
     private $_value_warna;
     private $_usia;
-    private $_gambar = "default.jpg";
+    private $_gambar;
 
     /**
      * @param mixed $id

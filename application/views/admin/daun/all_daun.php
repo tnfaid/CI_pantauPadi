@@ -95,7 +95,7 @@
                                 <?php endif ?>
                             </td>
                              <td class="text-center"> 
-                            <img class="img-thumbnail" src="<?php echo base_url('gambar_unggah/daun/'.$daun['gambar']) ?>" height="64" width="64">  
+                            <img class="img-thumbnail" src="<?php echo base_url('webService/'.$daun['gambar']) ?>" height="64" width="64">  
                             </td>
                             <td><?php echo $daun['nama_penyakit']; ?></td>
                             <td><?php echo $daun['penulis']; ?></td>
