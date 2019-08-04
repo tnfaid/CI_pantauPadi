@@ -24,6 +24,7 @@ class Crud_daun extends CI_Controller{
 
         if ($_POST){
             $data = array(
+                'user_id' =>'100',
                 'nama_penyakit' => $_POST['nama_penyakit'],
                 'kondisi' =>$_POST['kondisi'],
                 'solusi'=>$_POST['solusi'],
@@ -56,10 +57,10 @@ class Crud_daun extends CI_Controller{
             );
             $data = $this->security->xss_clean($data);
 
-            if (!empty($_FILES["gambar"]["name"])) {
+            if (!empty($_FILES['gambar']['name'])) {
                     $_POST['gambar'] = $this->_uploadImage();
             } else {
-                    $_POST['gambar'] = $_POST["old_image"];
+                    $_POST['gambar'] = $_POST['old_image'];
             }
             
 
