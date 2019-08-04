@@ -42,10 +42,10 @@ if ((empty($first_name))) {
 
  } else {
  if (!empty($email) && $password == $confirm_password){
- 	$num_rows = mysqli_num_rows(mysqli_query($con, "SELECT * FROM tb_user WHERE email='".$email."'"));
+ 	$num_rows = mysqli_num_rows(mysqli_query($con, "SELECT * FROM user WHERE email='".$email."'"));
 
  	if ($num_rows == 0){
-        $query = mysqli_query($con, "INSERT INTO tb_user (id,first_name, last_name, email, password) VALUES(0,'".$first_name."','".$last_name."','".$email."','".$password."'')");
+        $query = mysqli_query($con, "INSERT INTO user (id,first_name, last_name, email, password) VALUES(0,'".$first_name."','".$last_name."','".$email."','".$password."'')");
 
 
  		if ($query){
