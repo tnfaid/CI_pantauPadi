@@ -3,22 +3,22 @@ if($_SERVER['REQUEST_METHOD']=='POST') {
 
    $response = array();
    //mendapatkan data
-   $user_id = $_POST['user_id'];
-   $jenis_tanaman = $_POST['jenis_tanaman'];
-   $warna_daun = 'green';
-   $bwd_range = '0';
+   $user_id = $_POST['id_user'];
+   $nama_penyakit = $_POST['nama_penyakit'];
+   $value_warna = 'value_warna';
    $solusi = $_POST['solusi'];
-   $pic_compare = 'daun/default.jpg';
+   $gambar = 'daun/default.jpg';
    $kondisi = date('Y-m-d H:i:s');
    $penulis = $_POST['penulis'];
    date_default_timezone_set('Asia/Jakarta');  
    $tanggal_upload =  date('Y-m-d H:i:s');
+   $usia = $_POST['usia']; 
    
 
    require_once('koneksi.php');
 
         
-         $sql = "INSERT INTO daun (id, user_id,jenis_tanaman,warna_daun,bwd_range,solusi,pic_compare,kondisi,penulis,tanggal_upload) VALUES(0,'$user_id', '$jenis_tanaman', '$warna_daun', '$bwd_range', '$solusi', '$pic_compare', '$kondisi', '$penulis', '$tanggal_upload')";
+         $sql = "INSERT INTO daun (id, id_user,nama_penyakit,value_warna,solusi,gambar,kondisi,penulis,tanggal_upload, usia) VALUES(0,'$user_id', '$nama_penyakit', '$value_warna', '$solusi', '$gambar', '$kondisi', '$penulis', '$tanggal_upload', '$usia')";
          if(mysqli_query($con,$sql)) {
            $response["value"] = 1;
            $response["message"] = "Sukses, cek data daun anda di Menu beranda";

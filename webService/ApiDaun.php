@@ -22,7 +22,7 @@
  $stmt->execute();
  
  //binding results to the query 
- $stmt->bind_result($id, $id_user, $jenis_tanaman, $warna_daun, $bwd_range, $solusi, $pic_compare, $kondisi, $penulis, $tanggal_upload);
+ $stmt->bind_result($id, $id_user, $nama_penyakit, $solusi, $gambar, $kondisi, $penulis, $tanggal_upload, $value_warna, $usia);
  
  $daun = array(); 
  
@@ -31,14 +31,14 @@
  $temp = array();
  $temp['id'] = $id; 
  $temp['id_user'] = $id_user; 
- $temp['jenis_tanaman'] = $jenis_tanaman; 
- $temp['warna_daun'] = $warna_daun; 
- $temp['bwd_range'] = $bwd_range; 
+ $temp['nama_penyakit'] = $nama_penyakit; 
  $temp['solusi'] = $solusi;
- $temp['pic_compare'] = $pic_compare; 
+ $temp['gambar'] = $gambar; 
  $temp['kondisi'] = $kondisi; 
  $temp['penulis'] = $penulis; 
  $temp['tanggal_upload'] = $tanggal_upload; 
+ $temp['value_warna'] = $value_warna; 
+ $temp['usia'] = $usia; 
  array_push($daun, $temp);
  }
  
