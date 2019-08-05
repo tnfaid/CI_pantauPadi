@@ -92,7 +92,8 @@ class Crud_daun extends CI_Controller{
 
     private function _uploadImage()
     {
-        $file_name = "uploads/".$_POST['nama_penyakit'].".hore";
+       
+        $file_name = $_POST['nama_penyakit'].".png";
         $config['upload_path']          = './webService/uploads/';
         $config['allowed_types']        = 'gif|jpg|png';
         $config['file_name']            = $file_name;
@@ -106,7 +107,8 @@ class Crud_daun extends CI_Controller{
         if ($this->upload->do_upload('gambar')) {
             return $this->upload->data("file_name");
         }
-        
+
+            
         return "default.jpg";
     }
 
