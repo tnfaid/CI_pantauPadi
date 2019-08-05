@@ -43,7 +43,9 @@
 		// sesuiakan ip address laptop/pc atau URL server
 		$actualpath = "http://localhost:8080/CI_PantauPadi/webService/$path";
 		
+
 		$query = mysqli_query($con, "INSERT INTO daun (gambar,nama_penyakit, user_id, kondisi, solusi, penulis, usia, value_warna, tanggal_upload) VALUES ('$nama_upload_gambar','$nama_penyakit','$user_id', '$kondisi', '$solusi', '$penulis', '$usia', '$value_warna', '$tanggal_upload')");
+
 		
 		if ($query){
 			file_put_contents($path,base64_decode($gambar));
